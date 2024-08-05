@@ -1,2 +1,185 @@
-<b>PROF</b> website is going to be live here.
-<a href="https://arxiv.org/">ArXiv</a> link is going to be live here.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROF: Protected Order Flow in a Profit-Seeking World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header img {
+            max-height: 120px;
+            margin-right: 20px;
+        }
+        header h1 span {
+            text-decoration: underline;
+        }
+        section {
+            margin: 1em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            width: 80%;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .figures {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .figure-row {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .figure-item {
+            width: 45%;
+            text-align: center;
+        }
+        .figure-item img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #2c3e50;
+            padding: 5px;
+        }
+        .figure-item figcaption {
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .team-row {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .team-member {
+            margin: 1em;
+            text-align: center;
+            width: 150px;
+        }
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .team-member h3 {
+            margin-top: 0.5em;
+            font-size: 1em;
+        }
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 2em;
+            font-size: 0.8em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="prof-logo.png" alt="Prof Project Logo">
+        <h1>PROF: <span>Pr</span>otected <span>O</span>rder <span>F</span>low in a Profit-Seeking World</h1>
+    </header>
+    <section>
+        <h2>Resources</h2>
+        <p><a href="https://arxiv.org/" target="_blank">ArXiv Link</a></p>
+        <p><a href="https://initc3org.medium.com/prof-fair-transaction-ordering-in-a-profit-seeking-world-b6dadd71f086" target="_blank">Read the Blog Post</a></p>
+        <embed src="paper.pdf" type="application/pdf" width="100%" height="600px" />
+    </section>
+    <section class="figures">
+        <h2>System Design Figures</h2>
+        <div class="figure-row">
+            <figure class="figure-item">
+                <img src="system-diagrams/prof-abstract.png" alt="PROF Abstract Figure">
+                <figcaption>PROF Abstract Figure</figcaption>
+            </figure>
+            <figure class="figure-item">
+                <img src="system-diagrams/prof-design.png" alt="PROF Design Figure">
+                <figcaption>PROF Design Figure</figcaption>
+            </figure>
+        </div>
+        <div class="figure-row">
+            <figure class="figure-item">
+                <img src="system-diagrams/prof-timeline.png" alt="PROF Timeline Figure">
+                <figcaption>PROF Timeline Figure</figcaption>
+            </figure>
+            <figure class="figure-item">
+                <img src="system-diagrams/prof-share-design.png" alt="PROF Share Design Figure">
+                <figcaption>PROF Share Design Figure</figcaption>
+            </figure>
+        </div>
+    </section>
+    <section class="team">
+        <h2>Team</h2>
+        <div class="team-row">
+            <div class="team-member">
+                <img src="team/kushal-babel.jpg" alt="Kushal Babel">
+                <h3>Kushal Babel</h3>
+            </div>
+            <div class="team-member">
+                <img src="team/nerla-jean-louis.jpg" alt="Nerla Jean-Louis">
+                <h3>Nerla Jean-Louis</h3>
+            </div>
+            <div class="team-member">
+                <img src="team/yan-ji.png" alt="Yan Ji">
+                <h3>Yan Ji</h3>
+            </div>
+            <div class="team-member">
+                <img src="team/ujval-misra.jpg" alt="Ujval Misra">
+                <h3>Ujval Misra</h3>
+            </div>
+        </div>
+        <div class="team-row">
+            <div class="team-member">
+                <img src="team/mahimna-kelkar.jpeg" alt="Mahimna Kelkar">
+                <h3>Mahimna Kelkar</h3>
+            </div>
+            <div class="team-member">
+                <img src="team/kosala-yapa-mudiyanselage.jpeg" alt="Kosala Yapa Mudiyanselage">
+                <h3>Kosala Yapa Mudiyanselage</h3>
+            </div>
+            <div class="team-member">
+                <img src="team/andrew-miller.jpg" alt="Andrew Miller">
+                <h3>Andrew Miller</h3>
+            </div>
+            <div class="team-member">
+                <img src="team/ari-juels.png" alt="Ari Juels">
+                <h3>Ari Juels</h3>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>Made with ❤️ by Copilot</p>
+    </footer>
+</body>
+</html>
