@@ -42,6 +42,10 @@
             justify-content: center;
             align-items: center;
             color: white;
+            overflow: hidden; /* Prevents scrollbars in overlay */
+        }
+        .no-scroll {
+            overflow: hidden; /* Disables scrolling */
         }
         .overlay img {
             max-width: 90%;
@@ -334,6 +338,7 @@
                 currentIndex = index;
                 overlayImg.src = figure.src;
                 overlay.style.display = 'flex';
+                document.body.classList.add('no-scroll'); // Disable scrolling
             });
         });
 
@@ -354,6 +359,7 @@
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) {
                 overlay.style.display = 'none';
+                document.body.classList.remove('no-scroll'); // Re-enable scrolling
             }
         });
 
@@ -382,6 +388,7 @@
                     nextBtn.click();
                 } else if (e.key === 'Escape') {
                     overlay.style.display = 'none';
+                    document.body.classList.remove('no-scroll'); // Re-enable scrolling
                 }
             }
         });
