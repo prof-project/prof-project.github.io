@@ -5,31 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROF: Protected Order Flow in a Profit-Seeking World</title>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <script>
-        document.addEventListener('click', function(event) {
-            var lightboxOverlay = document.querySelector('.lightboxOverlay');
-            var lightbox = document.querySelector('.lightbox');
-            if (lightboxOverlay && lightbox && !lightbox.contains(event.target)) {
-                lightboxOverlay.style.display = 'none';
-                lightbox.style.display = 'none';
-            }
-        });
-    </script>
     <style>
-        .lightboxOverlay {
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: white;
         }
-        .lightbox {
-            width: 80%;
-            height: 80%;
-            top: 10%;
-            left: 10%;
+        .overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            background-color: white;
         }
-        .lb-image {
-            max-width: 100%;
-            max-height: 100%;
+        .overlay .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+        .nav.left {
+            left: 0;
+        }
+        .nav.right {
+            right: 0;
         }
         body {
             font-family: 'Merriweather', serif;
@@ -93,6 +99,16 @@
         }
         :root {
         --grid-gap: 0.5em;
+        }
+
+        @media (max-width: 600px) {
+            .figure-item {
+                width: 90%;
+            }
+            .overlay .nav {
+                font-size: 1.5em;
+                padding: 0 10px;
+            }
         }
 
         @media (min-width: 600px) {
@@ -170,39 +186,10 @@
         </div>
     </section>
     <section class="figures">
-        <h2>System Design Figures</h2>
+        <h2>System Design Gallery</h2>
         <div class="figure-row">
             <figure class="figure-item">
-                <a href="system-diagrams/prof-abstract.png" data-lightbox="system-figures" data-title="PROF Abstract Figure">
                 <img src="system-diagrams/prof-abstract.png" alt="PROF Abstract Design">
-            </a>
-                <figcaption>PROF Abstract Design</figcaption>
-            </figure>
-            <figure class="figure-item">
-                <img src="system-diagrams/prof-design.png" alt="PROF Design">
-                <figcaption>PROF Design</figcaption>
-            </figure>
-        </div>
-        <div class="figure-row">
-            <figure class="figure-item">
-                <img src="system-diagrams/prof-timeline.png" alt="PROF Timeline">
-                <figcaption>PROF Timeline</figcaption>
-            </figure>
-            <figure class="figure-item">
-                <img src="system-diagrams/prof-share-design.png" alt="PROF-Share Design">
-                <figcaption>PROF-Share Design</figcaption>
-            </figure>
-        </div>
-    </section>
-    <section class="team-section">
-        <h2>Team</h2>
-    <section class="figures">
-        <h2>System Design Figures</h2>
-        <div class="figure-row">
-            <figure class="figure-item">
-                
-                <img src="system-diagrams/prof-abstract.png" alt="PROF Abstract Design">
-            
                 <figcaption>PROF Abstract Design</figcaption>
             </figure>
             <figure class="figure-item">
@@ -278,5 +265,75 @@
     <footer>
         <p>Made with ❤️ by Copilot</p>
     </footer>
+    <div class="overlay" id="overlay">
+        <div class="nav left" id="prev">&#10094;</div>
+        <img src="" alt="Zoomed Image" id="overlay-img">
+        <div class="nav right" id="next">&#10095;</div>
+    </div>
+    <script>
+        const figures = document.querySelectorAll('.figure-item img');
+        const overlay = document.getElementById('overlay');
+        const overlayImg = document.getElementById('overlay-img');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+        let currentIndex = 0;
+
+        figures.forEach((figure, index) => {
+            figure.addEventListener('click', () => {
+                currentIndex = index;
+                overlayImg.src = figure.src;
+                overlay.style.display = 'flex';
+            });
+        });
+
+        function showImage(index) {
+            overlayImg.src = figures[index].src;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? figures.length - 1 : currentIndex - 1;
+            showImage(currentIndex);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex === figures.length - 1) ? 0 : currentIndex + 1;
+            showImage(currentIndex);
+        });
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.style.display = 'none';
+            }
+        });
+
+        // Swipe functionality
+        let startX;
+
+        overlay.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        overlay.addEventListener('touchend', (e) => {
+            const endX = e.changedTouches[0].clientX;
+            if (startX > endX + 50) {
+                nextBtn.click();
+            } else if (startX < endX - 50) {
+                prevBtn.click();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (overlay.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') {
+                    prevBtn.click();
+                } else if (e.key === 'ArrowRight') {
+                    nextBtn.click();
+                } else if (e.key === 'Escape') {
+                    overlay.style.display = 'none';
+                }
+            }
+        });
+    </script>
 </body>
 </html>
