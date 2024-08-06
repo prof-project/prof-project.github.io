@@ -5,7 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROF: Protected Order Flow in a Profit-Seeking World</title>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        document.addEventListener('click', function(event) {
+            var lightboxOverlay = document.querySelector('.lightboxOverlay');
+            var lightbox = document.querySelector('.lightbox');
+            if (lightboxOverlay && lightbox && !lightbox.contains(event.target)) {
+                lightboxOverlay.style.display = 'none';
+                lightbox.style.display = 'none';
+            }
+        });
+    </script>
     <style>
+        .lightboxOverlay {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .lightbox {
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+        }
+        .lb-image {
+            max-width: 100%;
+            max-height: 100%;
+        }
         body {
             font-family: 'Merriweather', serif;
             margin: 0;
@@ -136,7 +161,7 @@
     </header>
     <section>
         <h2>Resources</h2>
-        <!-- <p><a href="https://arxiv.org/" target="_blank">ArXiv Link</a></p> -->
+        <p><a href="https://arxiv.org/abs/2408.02303" target="_blank">ArXiv Link</a></p>
         <p><a href="https://initc3org.medium.com/prof-fair-transaction-ordering-in-a-profit-seeking-world-b6dadd71f086" target="_blank">Read the Blog Post</a></p>
         <p><a href="prof-paper.pdf" target="_blank">Download the paper</a></p>
         <!-- <embed src="prof-paper.pdf" type="application/pdf" width="100%" height="600px" /> -->
@@ -148,8 +173,37 @@
         <h2>System Design Figures</h2>
         <div class="figure-row">
             <figure class="figure-item">
-                <img src="system-diagrams/prof-abstract.png" alt="PROF Abstract">
-                <figcaption>PROF Abstract</figcaption>
+                <a href="system-diagrams/prof-abstract.png" data-lightbox="system-figures" data-title="PROF Abstract Figure">
+                <img src="system-diagrams/prof-abstract.png" alt="PROF Abstract Design">
+            </a>
+                <figcaption>PROF Abstract Design</figcaption>
+            </figure>
+            <figure class="figure-item">
+                <img src="system-diagrams/prof-design.png" alt="PROF Design">
+                <figcaption>PROF Design</figcaption>
+            </figure>
+        </div>
+        <div class="figure-row">
+            <figure class="figure-item">
+                <img src="system-diagrams/prof-timeline.png" alt="PROF Timeline">
+                <figcaption>PROF Timeline</figcaption>
+            </figure>
+            <figure class="figure-item">
+                <img src="system-diagrams/prof-share-design.png" alt="PROF-Share Design">
+                <figcaption>PROF-Share Design</figcaption>
+            </figure>
+        </div>
+    </section>
+    <section class="team-section">
+        <h2>Team</h2>
+    <section class="figures">
+        <h2>System Design Figures</h2>
+        <div class="figure-row">
+            <figure class="figure-item">
+                
+                <img src="system-diagrams/prof-abstract.png" alt="PROF Abstract Design">
+            
+                <figcaption>PROF Abstract Design</figcaption>
             </figure>
             <figure class="figure-item">
                 <img src="system-diagrams/prof-design.png" alt="PROF Design">
