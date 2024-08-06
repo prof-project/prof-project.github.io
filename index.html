@@ -6,6 +6,31 @@
     <title>PROF: Protected Order Flow in a Profit-Seeking World</title>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        .faq {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-item h3 {
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    margin: 0;
+}
         .overlay {
             position: fixed;
             top: 0;
@@ -166,7 +191,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        border: none;
+        border: solid 1px #666;
     }
     </style>
 </head>
@@ -206,6 +231,31 @@
                 <img src="system-diagrams/prof-share-design.png" alt="PROF-Share Design">
                 <figcaption>PROF-Share Design</figcaption>
             </figure>
+        </div>
+        <div class="figure-row">
+            <figure class="figure-item">
+                <img src="system-diagrams/concurrent-sequencers.png" alt="Multiple concurrent PROF sequencers">
+                <figcaption>Multiple concurrent PROF sequencers</figcaption>
+            </figure>
+            <figure class="figure-item">
+                <img src="system-diagrams/prof-sequential.png" alt="Enrichment from multiple PROF sequencers">
+                <figcaption>Enrichment from multiple PROF sequencers</figcaption>
+            </figure>
+        </div>
+    </section>
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3>What is PROF?</h3>
+            <p>PROF stands for PRotected Order Flow. It is a system designed to protect users from harmful MEV extraction, in light of profit-maximizing nature of validators.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How can I learn more about PROF?</h3>
+            <p>You can read our <a href="https://arxiv.org/abs/2408.02303" target="_blank">paper</a> or check out our <a href="https://initc3org.medium.com/prof-fair-transaction-ordering-in-a-profit-seeking-world-b6dadd71f086" target="_blank">blog post</a>.</p> If you have more questions, email <a href="mailto:babel@cs.cornell.edu">one</a> <a href="mailto:juels@cornell.edu">of</a> <a href="mailto:soc1024@illinois.edu">us</a>.
+        </div>
+        <div class="faq-item">
+            <h3>Where can I find the source code?</h3>
+            <p>The source code is available in the <a href="https://github.com/prof-project/" target="_blank">prof-project GitHub organization</a>.</p>
         </div>
     </section>
     <section class="team-section">
@@ -264,6 +314,7 @@
     </section>
     <footer>
         <p>Made with ❤️ by Copilot</p>
+        <p><a href="https://github.com/prof-project/prof-project.github.io/" target="_blank">Website Source</a></p>
     </footer>
     <div class="overlay" id="overlay">
         <div class="nav left" id="prev">&#10094;</div>
