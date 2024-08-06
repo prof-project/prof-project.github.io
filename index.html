@@ -252,23 +252,34 @@
     <section class="faq">
         <h2>Frequently Asked Questions</h2>
         <div class="faq-item">
-            <h3 onclick="toggleAnswer(this)">What is PROF in one sentence?</h3>
+            <h3 onclick="toggleAnswer(this)">1. What is PROF in one sentence?</h3>
             <p class="faq-answer">A simple PBS-compatible system designed to protect users from harmful MEV extraction, in light of the profit-maximizing nature of validators.</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleAnswer(this)">Is PROF sequencer a centralized entity?</h3>
+            <h3 onclick="toggleAnswer(this)">2. Is PROF sequencer a centralized entity?</h3>
             <p class="faq-answer">No, PROF sequencer is in fact only a black-box and can be implemented through a decentralized protocol, as long as this protocol orders transactions without looking at the contents of transactions (except transaction fee).</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleAnswer(this)">What is the relationship between PROF and Fair Ordering?</h3>
+            <h3 onclick="toggleAnswer(this)">3. What is the relationship between PROF and Fair Ordering?</h3>
             <p class="faq-answer">PROF does not commit to one particular ordering policy. A PROF sequencer can choose an arbitrary ordering policy and there can be multiple PROF sequencers with different ordering policies. PROF, however, can serve as a vehicle for smooth adoption of temporal fair ordering policies, especially considering the fact that PROF gets rid of the main negative externality of an FCFS ordering policy, i.e.,latency racing. </p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleAnswer(this)">Don't we want to get rid of the trusted relay, rather than leveraging it?</h3>
+            <h3 onclick="toggleAnswer(this)">4. Besides protecting users, what are some other benefits of PROF?</h3>
+            <p class="faq-answer">Glad you asked!
+                <br>
+                1. PROF transactions bypass the competition in PBS, thus enjoying high inclusion likelihood for minimal fee. Check out our inclusion likelihood analysis in Section 6.2 of the paper.
+                <br>
+                2. Transactions in PROF-Share can be backrun efficiently (compared to MEV Blocker, MEV-Share, etc.) as complete transactions are revealed to backrunners. Furthermore, the backrunning auction is conducted solely for the benefit of the users, unlike the current backrunning auctions which decide the winning backrun based on the revenue of the validators.
+                <br>
+                3. PROF-Share ensures that all its users are backrun together (even across multiple PROF sequencers). This allows users to organically backrun each other and reduces leakage of value from users to backrunning arbitrageurs.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleAnswer(this)">5. Don't we want to get rid of the trusted relay, rather than leveraging it?</h3>
             <p class="faq-answer">Read our discussion on integrating PROF with ePBS in the Related Work section (Section 7.1).</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleAnswer(this)">What is the impact of latency due to enrichment (merging of PROF bundle)?</h3>
+            <h3 onclick="toggleAnswer(this)">6. What is the impact of latency due to enrichment (merging of PROF bundle)?</h3>
             <p class="faq-answer"><u>Users</u>: We conduct thorough empirical analysis to show that the impact of latency on the inclusion likelihood of PROF users' transactions is minimal.
                 <br>
             <u>Validators</u> and <u>Builders</u>: Validators always receive the best possible block, as PROF is concurrent to the existing operations of PBS. Similarly, builders are unaffected as they run PROF concurrently with their existing workflow.
@@ -276,23 +287,23 @@
             PROF can easily work with optimistic relays (hybrid mode of PROF).</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleAnswer(this)">Why would a relay choose one particular PROF sequencer? Does it not violate the neutrality of the relay?</h3>
+            <h3 onclick="toggleAnswer(this)">7. Why would a relay choose one particular PROF sequencer? Does it not violate the neutrality of the relay?</h3>
             <p class="faq-answer">A PROF-enabled relay does NOT need to choose one particular PROF sequencer. In fact, many PROF sequencers can operate concurrently and bundles from multiple PROF sequencers can be combined to obtain the final PROF-enriched block.</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleAnswer(this)">Isn't PROF merely equivalent to including protected transactions inside a builder's block?</h3>
+            <h3 onclick="toggleAnswer(this)">8. Isn't PROF merely equivalent to including protected transactions inside a builder's block?</h3>
             <p class="faq-answer">No! Carefully read Section 1.2 of the paper for a concise summary of our insights.</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleAnswer(this)">How can I learn more about PROF?</h3>
+            <h3 onclick="toggleAnswer(this)">9. How can I learn more about PROF?</h3>
             <p class="faq-answer">You can read our <a href="https://arxiv.org/abs/2408.02303" target="_blank">paper</a> or check out our <a href="https://initc3org.medium.com/prof-fair-transaction-ordering-in-a-profit-seeking-world-b6dadd71f086" target="_blank">blog post</a> for understanding the core idea. If you have more questions, email <a href="mailto:babel@cs.cornell.edu">one</a> <a href="mailto:juels@cornell.edu">of</a> <a href="mailto:soc1024@illinois.edu">us</a>.</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleAnswer(this)">Where can I find the source code?</h3>
+            <h3 onclick="toggleAnswer(this)">10. Where can I find the source code?</h3>
             <p class="faq-answer">The source code is available in the <a href="https://github.com/prof-project/" target="_blank">prof-project GitHub organization</a>.</p>
         </div>
         <div class="faq-item">
-            <h3 onclick="toggleAnswer(this)">What is the endgame for PROF?</h3>
+            <h3 onclick="toggleAnswer(this)">11. What is the endgame for PROF?</h3>
             <p class="faq-answer">1bb8db85a843b05bb889c7a794036dca<wbr>07ebb99c2c22079eae3e5b3fad45ff99</p>
         </div>
 
