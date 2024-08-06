@@ -66,20 +66,31 @@
             font-weight: 500;
             margin-top: 10px;
         }
-        .team {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+        :root {
+        --grid-gap: 0.5em;
         }
-        .team-row {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
+
+        @media (min-width: 600px) {
+            :root {
+                --grid-gap: 2em;
+            }
+        }
+
+        @media (min-width: 900px) {
+            :root {
+                --grid-gap: 5em;
+            }
+        }
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--grid-gap);
+            justify-items: center;
+            justify-content: center;
         }
         .team-member {
-            margin: 1em;
             text-align: center;
-            width: 150px;
+            padding: 1em;
         }
         .team-member img {
             width: 150px;
@@ -89,7 +100,6 @@
         }
         .team-member h3 {
             margin-top: 0.5em;
-            font-size: 1em;
         }
         a {
             color: #2980b9;
@@ -108,7 +118,7 @@
 <body>
     <header>
         <img src="prof-logo.png" alt="Prof Project Logo">
-        <h1>PROF: <span>Pr</span>otected <span>O</span>rder <span>F</span>low in a Profit-Seeking World</h1>
+        <h1>PROF: <span>Pr</span>otected <span>O</span>rder <span>F</span>Flow in a Profit-Seeking World</h1>
     </header>
     <section>
         <h2>Resources</h2>
@@ -139,9 +149,9 @@
             </figure>
         </div>
     </section>
-    <section class="team">
+    <section class="team-section">
         <h2>Team</h2>
-        <div class="team-row">
+        <div class="team">
             <div class="team-member">
                 <img src="team/kushal-babel.jpg" alt="Kushal Babel">
                 <h3>Kushal Babel</h3>
@@ -158,8 +168,8 @@
                 <img src="team/ujval-misra.jpg" alt="Ujval Misra">
                 <h3>Ujval Misra</h3>
             </div>
-        </div>
-        <div class="team-row">
+        <!-- </div> -->
+        <!-- <div class="team-row"> -->
             <div class="team-member">
                 <img src="team/mahimna-kelkar.jpeg" alt="Mahimna Kelkar">
                 <h3>Mahimna Kelkar</h3>
