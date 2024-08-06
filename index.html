@@ -113,6 +113,20 @@
             font-size: 0.8em;
             color: #888;
         }
+        .pdf-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 75%; /* Adjust this value to control the aspect ratio */
+    }
+    .pdf-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
     </style>
 </head>
 <body>
@@ -124,7 +138,11 @@
         <h2>Resources</h2>
         <!-- <p><a href="https://arxiv.org/" target="_blank">ArXiv Link</a></p> -->
         <p><a href="https://initc3org.medium.com/prof-fair-transaction-ordering-in-a-profit-seeking-world-b6dadd71f086" target="_blank">Read the Blog Post</a></p>
-        <embed src="paper.pdf" type="application/pdf" width="100%" height="600px" />
+        <p><a href="prof-paper.pdf" target="_blank">Download the paper</a></p>
+        <!-- <embed src="prof-paper.pdf" type="application/pdf" width="100%" height="600px" /> -->
+        <div class="pdf-container">
+            <iframe src="prof-paper.pdf" type="application/pdf"></iframe>
+        </div>
     </section>
     <section class="figures">
         <h2>System Design Figures</h2>
